@@ -1,3 +1,6 @@
+# Default shell
+SHELL = /bin/sh
+
 # Commands
 ASM := nasm
 
@@ -6,10 +9,10 @@ CFLAGS += -Wall -Wextra -Werror
 CFLAGS += -m64 
 
 # Directories
-INC_DIR := inc
-SRC_DIR := src
+SRC_DIR := libasm
 BUILD_DIR := build
 TEST_DIR := tests
+INC_DIR := include
 
 # Binary names
 LIB_NAME := libasm.a
