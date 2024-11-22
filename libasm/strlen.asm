@@ -1,8 +1,8 @@
 [bits 64]
 
-[global strlen]
+[global strlen1]
 
-strlen:
+strlen1:
     xor rax, rax
 
 count:
