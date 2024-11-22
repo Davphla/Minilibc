@@ -36,25 +36,33 @@ TEST_OBJ := $(TEST_SRC:$(TEST_DIR)/%.c=$(BUILD_DIR)/%.o)
 .DELETE_ON_ERROR:
 all: $(LIB_NAME)
 
-$(LIB_NAME): $(ASM_OBJ)
-	$(AR) $(ARFLAGS) $@ $^ 
-
-$(BUILD_DIR)/%.o: $(SRC_DIR)/%.asm
-	$(ASM) -f elf64 $< -o $@
-
-$(BUILD_DIR)/%.o: $(TEST_DIR)/%.c
-	$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
-
-$(ASM_OBJ) $(TEST_OBJ): | $(BUILD_DIR)
-
-$(BUILD_DIR):
-	@mkdir -p $@
-
-test: $(LIB_NAME) $(TEST_OBJ)
-	$(CC) $(CFLAGS) $(CPPFLAGS) $(TEST_OBJ) -o $(TEST_OUT) -L. -lasm
+test: $(TEST_OUT)
 
 run: test
 	@./$(TEST_OUT)
+
+# Build library
+$(LIB_NAME): $(ASM_OBJ)
+	$(AR) $(ARFLAGS) $@ $^ 
+
+# Compile asm file
+$(BUILD_DIR)/%.o: $(SRC_DIR)/%.asm
+	$(ASM) -f elf64 $< -o $@
+
+# Compile c file
+$(BUILD_DIR)/%.o: $(TEST_DIR)/%.c
+	$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
+
+# Check BUILD_DIR existing
+$(ASM_OBJ) $(TEST_OBJ): | $(BUILD_DIR)
+
+# Create BUILD_DIR
+$(BUILD_DIR):
+	@mkdir -p $@
+
+# Create test binary
+$(TEST_OUT): $(LIB_NAME) $(TEST_OBJ)
+	$(CC) $(CFLAGS) $(CPPFLAGS) $(TEST_OBJ) -o $(TEST_OUT) -L. -lasm
 
 clean:
 	rm -rf $(BUILD_DIR)
