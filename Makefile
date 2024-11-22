@@ -1,5 +1,4 @@
 # Commands
-LD := ar rcs
 ASM := nasm
 
 # Flags
@@ -17,18 +16,18 @@ LIB_NAME := libasm.a
 TEST_OUT := unit_test
 
 # ASM files
-ASM_SRC := $(wildcard src/*.asm)
+ASM_SRC := $(wildcard $(SRC_DIR)/*.asm)
 ASM_OBJ := $(ASM_SRC:$(SRC_DIR)/%.asm=$(BUILD_DIR)/%.o)
 
 # C test files
-TEST_SRC := $(wildcard tests/*.c)
+TEST_SRC := $(wildcard $(TEST_DIR)/*.c)
 TEST_OBJ := $(TEST_SRC:$(TEST_DIR)/%.c=$(BUILD_DIR)/%.o)
 
 .DELETE_ON_ERROR:
 all: $(LIB_NAME)
 
 $(LIB_NAME): $(ASM_OBJ)
-	$(LD) $^ -o $@
+	ar rcs $@ $^ 
 
 $(ASM_OBJ): $(ASM_SRC)
 	$(ASM) -f elf64 $< -o $@
@@ -41,7 +40,7 @@ $(ASM_OBJ) $(TEST_OBJ): | $(BUILD_DIR)
 $(BUILD_DIR):
 	@mkdir -p $(BUILD_DIR)
 
-test: $(ASM_OBJ)
+test: $(ASM_OBJ) $(TEST_OBJ)
 
 clean:
 	rm -rf $(BUILD_DIR)
