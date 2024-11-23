@@ -16,6 +16,5 @@ Minilibc is a lightweight C library that aims to recreate essential string and m
     strcspn
 
 # TODO
-add build directory in lib folder
 see where to put library file
 implement unity
