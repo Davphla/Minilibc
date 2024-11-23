@@ -18,3 +18,4 @@ Minilibc is a lightweight C library that aims to recreate essential string and m
 # TODO
 see where to put library file
 implement unity
+add github action test

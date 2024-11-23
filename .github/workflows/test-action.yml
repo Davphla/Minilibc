@@ -1,0 +1,19 @@
+name: Test Action
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      
+    - name: Run tests
+      run: |
+        - name: Build project
+          run: make
+
+        - name: Run tests
+          run: make run

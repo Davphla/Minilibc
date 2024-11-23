@@ -11,7 +11,7 @@ asm_strchr:
 find_char:
     mov bl, byte [rdi + rax] ; load next character
 
-    cmp bl, sil
+    cmp bl, sil 
     je found
 
     test bl, bl
