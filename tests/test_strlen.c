@@ -11,6 +11,6 @@ void test_strlen() {
     // Test multiple character string
     assert(asm_strlen("hello") == 5);
 
-    printf("All tests passed!\n");
+    printf("Strlen test passed!\n");
 }
 

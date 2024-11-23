@@ -1,15 +1,32 @@
 [bits 64]
 
-[global strchr]
+[global asm_strchr]
 
-strchr:
-    xor rax, rax
+asm_strchr:
+    ; Arguments:
+    ; rdi - pointer to the string
+    ; rsi - character to find
+    xor rax, rax ; set to 0
     
-count:
-    cmp byte [rdi + rax], sil
-    je quit
-    inc rax
-    jmp count
+find_char:
+    mov bl, byte [rdi + rax] ; load next character
 
-quit:
+    cmp bl, sil
+    je found
+
+    test bl, bl
+    jz not_found
+
+    inc rax
+    jmp find_char
+
+found:
+    ; Return the pointer to the found character
+    lea rax, [rdi + rax]
     ret
+
+not_found:
+    ; Return NULL (0) if the character is not found
+    xor rax, rax
+    ret
+
