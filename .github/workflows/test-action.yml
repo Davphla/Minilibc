@@ -13,11 +13,8 @@ jobs:
     - name: Set up dependencies
       run: sudo apt-get update && sudo apt-get install -y build-essential nasm
       
-    - name: Run tests
-      run: |
-      
-        - name: Build and run tests
-          run: make run
-
-        - name: Clean up
-          run: make clean
+    - name: Build and run tests
+      run: make run
+    
+    - name: Clean up
+      run: make clean
