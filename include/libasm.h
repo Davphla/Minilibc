@@ -4,4 +4,4 @@
 
 extern size_t asm_strlen(const char *__s);
 extern char *asm_strchr(const char *s, int c);
-
+extern void *asm_memset(void *s, int c, size_t n);

@@ -3,11 +3,12 @@
 [global asm_strchr]
 
 asm_strchr:
-    ; Arguments:
+    ; Parameters:
     ; rdi - pointer to the string
     ; rsi - character to find
     xor rax, rax ; set to 0
-    
+
+; TODO modify using lodsb and more correct register
 find_char:
     mov bl, byte [rdi + rax] ; load next character
 
