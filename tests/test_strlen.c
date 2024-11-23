@@ -14,7 +14,3 @@ void test_strlen() {
     printf("All tests passed!\n");
 }
 
-int main() {
-    test_strlen();
-    return 0;
-}
