@@ -3,9 +3,9 @@ Overview
 
 Minilibc is a lightweight C library that aims to recreate essential string and memory manipulation functions from the standard C library in assembly. This project focuses on implementing the following functions in assembly language:
 
-    strlen
-    strchr
-    memset
+    strlen :white_check_mark:
+    strchr :white_check_mark:
+    memset :white_check_mark:
     strcmp
     memmove
     strncmp
@@ -16,6 +16,6 @@ Minilibc is a lightweight C library that aims to recreate essential string and m
     strcspn
 
 # TODO
-see where to put library file
-implement unity
-add github action test
+- see where to put library file
+- implement unity
+- implement lodsb
