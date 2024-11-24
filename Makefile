@@ -20,7 +20,7 @@ CPPFLAGS := -I $(INC_DIR)
 ARFLAGS := rcs
 
 # Output archive and binary name 
-LIBASM := $(BUILD_DIR)/libasm.a
+LIBASM := libasm.a
 TEST_OUT := unit_test
 
 # ASM files
