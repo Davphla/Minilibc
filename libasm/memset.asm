@@ -13,5 +13,6 @@ asm_memset:
     mov ecx, edx
 
 fill_memory:
+    ; repeat al -> rdi until ecx == 0
     rep stosb
     ret
