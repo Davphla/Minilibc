@@ -6,8 +6,6 @@ void test_strcmp()
 {
     int result_asm, result_libc;
 
-
-
     result_asm = asm_strcmp("Hello", "Hello");
     result_libc = strcmp("Hello", "Hello");
     printf("asm_strcmp: %d, strcmp: %d\n", result_asm, result_libc);

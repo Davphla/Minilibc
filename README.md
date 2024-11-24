@@ -6,7 +6,7 @@ Minilibc is a lightweight C library that aims to recreate essential string and m
     strlen :white_check_mark:
     strchr :white_check_mark:
     memset :white_check_mark:
-    strcmp
+    strcmp :white_check_mark:
     memmove
     strncmp
     strcasecmp

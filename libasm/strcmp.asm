@@ -13,20 +13,16 @@ asm_strcmp:
     ;   - A positive value if s1 is greater than s2.
 
 char_cmp:
-    ; Get byte to compare
-    mov al, [rdi]
+    mov al, [rdi] ; Get byte to compare
     mov cl, [rsi]
     
-    ; Test if string ended
-    test al, cl 
+    test al, cl ; Test if string ended
     jz end_string
 
-    ; Check if different character
-    cmp al, cl
+    cmp al, cl ; Check if different character
     jne end_string
 
-    ; Move pointer and repeat
-    inc rdi
+    inc rdi ; Move pointer and repeat
     inc rsi
     jmp char_cmp
 
