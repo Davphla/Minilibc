@@ -30,10 +30,8 @@ char_cmp:
 
     inc rdi ; Move pointer and repeat
     inc rsi
+    jmp char_cmp
 
-    jmp char_cmp ; Repeat
-
-; TODO Optimize this part
 end_string:
     cmp al, cl
     jl less_than

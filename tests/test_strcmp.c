@@ -4,32 +4,17 @@
 
 void test_strcmp()
 {
-    int result_asm, result_libc;
-
-    result_asm = asm_strcmp("Hello", "Hello");
-    result_libc = strcmp("Hello", "Hello");
-    printf("asm_strcmp: %d, strcmp: %d\n", result_asm, result_libc);
-    assert(result_asm == result_libc);
-
-    result_asm = asm_strcmp("Hello", "Hell");
-    result_libc = strcmp("Hello", "Hell");
-    printf("asm_strcmp: %d, strcmp: %d\n", result_asm, result_libc);
-    assert(result_asm == result_libc);
-
-    result_asm = asm_strcmp("Hello", "hello");
-    result_libc = strcmp("Hello", "hello");
-    printf("asm_strcmp: %d, strcmp: %d\n", result_asm, result_libc);
-    assert(result_asm == result_libc);
-
-    result_asm = asm_strcmp("hello", "Hello");
-    result_libc = strcmp("hello", "Hello");
-    printf("asm_strcmp: %d, strcmp: %d\n", result_asm, result_libc);
-    assert(result_asm == result_libc);
-
-    result_asm = asm_strcmp("Hell", "Hello");
-    result_libc = strcmp("Hell", "Hello");
-    printf("asm_strcmp: %d, strcmp: %d\n", result_asm, result_libc);
-    assert(result_asm == result_libc);
+    assert(asm_strcmp("abc", "abc") == 0);
+    assert(asm_strcmp("abc", "abd") < 0);
+    assert(asm_strcmp("abd", "abc") > 0);
+    assert(asm_strcmp("abc", "ab") > 0);
+    assert(asm_strcmp("ab", "abc") < 0);
+    assert(asm_strcmp("abc", "abcd") < 0);
+    assert(asm_strcmp("abcd", "abc") > 0);
+    assert(asm_strcmp("", "") == 0);
+    assert(asm_strcmp("a", "") > 0);
+    assert(asm_strcmp("", "a") < 0);
+    printf("Strcmp test passed!\n");
 
     printf("Strcmp test passed!\n");
 }

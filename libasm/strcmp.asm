@@ -26,7 +26,6 @@ char_cmp:
     inc rsi
     jmp char_cmp
 
-; TODO Optimize this part
 end_string:
     cmp al, cl
     jl less_than
