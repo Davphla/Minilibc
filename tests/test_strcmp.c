@@ -14,7 +14,6 @@ void test_strcmp()
     assert(asm_strcmp("", "") == 0);
     assert(asm_strcmp("a", "") > 0);
     assert(asm_strcmp("", "a") < 0);
-    printf("Strcmp test passed!\n");
 
     printf("Strcmp test passed!\n");
 }
