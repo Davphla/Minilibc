@@ -17,9 +17,7 @@ Minilibc is a lightweight C library that aims to recreate essential string and m
 
 # TODO
 - implement unity
-- implement lodsb
 - add release library
 - add folder for asm build
 - think of an automatic system with makefile
-- fix strcmp
 
