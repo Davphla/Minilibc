@@ -7,7 +7,6 @@ asm_memmove:
     mov ecx, edx ; Nb of iteration
 
     cmp rdi, rsi
-    je done ; nothing to do
     ja cpy_backward ; di > si
 
 ; In case it overlap
@@ -22,7 +21,4 @@ cpy_backward:
     std 
     rep movsb
     cld 
-    ret
-
-done:
     ret
