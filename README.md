@@ -7,7 +7,7 @@ Minilibc is a lightweight C library that aims to recreate essential string and m
     strchr :white_check_mark:
     memset :white_check_mark:
     strcmp :white_check_mark:
-    memmove
+    memmove :white_check_mark:
     strncmp :white_check_mark:
     strcasecmp
     rindex
@@ -17,9 +17,7 @@ Minilibc is a lightweight C library that aims to recreate essential string and m
 
 # TODO
 - implement unity
-- implement lodsb
 - add release library
 - add folder for asm build
 - think of an automatic system with makefile
-- fix strcmp
 
