@@ -51,6 +51,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./build/libasm.a
+        asset_path: ./libasm.a
         asset_name: libasm.a
         asset_content_type: application/octet-stream
