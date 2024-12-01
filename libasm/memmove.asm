@@ -4,7 +4,7 @@
 
 asm_memmove:
     mov rax, rdi
-    mov ecx, edx ; Nb of iteration
+    mov rcx, rdx ; Nb of iteration
 
     cmp rdi, rsi
     ja cpy_backward ; di > si

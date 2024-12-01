@@ -5,9 +5,9 @@
 asm_strncmp:
     ; Compares two null-terminated strings.
     ; Parameters:
-    ;   rdi - pointer to the first null-terminated string
-    ;   rsi - pointer to the second null-terminated string
-    ;   rdx - size to be compared
+    ;   pointer to the first null-terminated string
+    ;   pointer to the second null-terminated string
+    ;   size to be compared
     ; Returns:
     ;   - A negative value if s1 is less than s2.
     ;   - Zero if s1 is equal to s2.
@@ -16,7 +16,7 @@ asm_strncmp:
 char_cmp:
     ; test if size == 0
     test rdx, rdx
-    jz equal
+    jz end_string
     dec rdx 
 
     mov al, [rdi] ; Get byte to compare
@@ -33,18 +33,8 @@ char_cmp:
     jmp char_cmp
 
 end_string:
-    cmp al, cl
-    jl less_than
-    jg greater_than
-
-equal:
-    mov rax, 0
+    movzx eax, al ; return *s1 - *s2
+    movzx edx, cl
+    sub eax, edx
     ret
     
-greater_than:
-    mov rax, 1
-    ret
-
-less_than:
-    mov rax, -1
-    ret

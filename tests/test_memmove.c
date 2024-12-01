@@ -6,7 +6,7 @@
 void test_memmove()
 {
     char src1[] = "Hello, World!";
-    char dest1[20];
+    char dest1[20] = {};
     asm_memmove(dest1, src1, 13);
     assert(strcmp(dest1, "Hello, World!") == 0);
 
@@ -26,5 +26,5 @@ void test_memmove()
     asm_memmove(src5, src5, 5);
     assert(strcmp(src5, "Short") == 0);
 
-    printf("All tests passed!\n");
+    printf("Memmove tests passed!\n");
 }

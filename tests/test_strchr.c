@@ -20,6 +20,6 @@ void test_strchr() {
     result = asm_strchr(s, '\0');
     assert(result == s + 13);
    
-    printf("Strchr test passed!\n");
+    printf("Strchr tests passed!\n");
 }
 

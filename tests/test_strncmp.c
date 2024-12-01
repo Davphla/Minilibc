@@ -16,5 +16,5 @@ void test_strncmp()
     assert(asm_strncmp("", "", 1) == 0);
     assert(asm_strncmp("a", "", 1) > 0);
     assert(asm_strncmp("", "a", 1) < 0);
-    printf("Strncmp passed!");
+    printf("Strncmp tests passed!\n");
 }

@@ -14,15 +14,14 @@ asm_strcmp:
 
 cmp_char:
     mov al, [rdi]
-    mov dl, [rsi]
+    mov cl, [rsi]
 
-    ; al & dl == '\0'
-    test al, al
+    test al, al ; al & cl == '\0'
     jz done
-    test dl, dl
+    test cl, cl
     jz done
-    ; cmp sil, dil
-    cmp al, dl 
+
+    cmp al, cl
     jne done
 
     inc rdi
@@ -30,8 +29,7 @@ cmp_char:
     jmp cmp_char
 
 done:
-    ; return *s1 - *s2
-    movzx eax, al
-    movzx edx, dl
+    movzx eax, al ; return *s1 - *s2
+    movzx edx, cl
     sub eax, edx
     ret

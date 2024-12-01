@@ -32,5 +32,5 @@ void test_strcasecmp()
     assert(strcasecmp("hello123", "HELLO123") == 0);
     assert(strcasecmp("hello123", "HELLO124") != 0);
 
-    printf("Strcasecmp test passed!\n");
+    printf("Strcasecmp tests passed!\n");
 }
