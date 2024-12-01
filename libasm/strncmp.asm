@@ -13,28 +13,29 @@ asm_strncmp:
     ;   - Zero if s1 is equal to s2.
     ;   - A positive value if s1 is greater than s2.
 
-char_cmp:
-    ; test if size == 0
-    test rdx, rdx
+cmp_char:
+    test rdx, rdx ; test if size == 0
     jz end_string
-    dec rdx 
 
-    mov al, [rdi] ; Get byte to compare
+    mov al, [rdi]
     mov cl, [rsi]
     
-    test al, cl ; Test if string ended
+    test al, al ; al & cl == '\0'
+    jz end_string
+    test cl, cl
     jz end_string
 
-    cmp al, cl ; Check if different character
+    cmp al, cl
     jne end_string
 
-    inc rdi ; Move pointer and repeat
+    inc rdi
     inc rsi
-    jmp char_cmp
+    dec rdx 
+    jmp cmp_char
 
 end_string:
     movzx eax, al ; return *s1 - *s2
-    movzx edx, cl
-    sub eax, edx
+    movzx ecx, cl
+    sub eax, ecx
     ret
     

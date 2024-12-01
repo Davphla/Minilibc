@@ -17,19 +17,19 @@ cmp_char:
     mov cl, [rsi]
 
     test al, al ; al & cl == '\0'
-    jz done
+    jz end_string
     test cl, cl
-    jz done
+    jz end_string
 
     cmp al, cl
-    jne done
+    jne end_string
 
     inc rdi
     inc rsi
     jmp cmp_char
 
-done:
+end_string:
     movzx eax, al ; return *s1 - *s2
-    movzx edx, cl
-    sub eax, edx
+    movzx ecx, cl
+    sub eax, ecx
     ret

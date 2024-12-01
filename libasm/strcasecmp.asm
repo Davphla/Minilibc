@@ -5,28 +5,31 @@
 asm_strcasecmp:
     ; pointer to first string
     ; pointer to second string
-    cld
 
 cmp_char:
-    ; set lowercase
-    or sil, 0x20
-    or dil, 0x20
+    mov al, [rdi]
+    mov cl, [rsi]
 
-    ; sil & dil == '\0'
-    test sil, dil
-    jz done
+    test al, al ; al & cl == '\0'
+    jz end_string
+    test cl, cl
+    jz end_string
 
-    ; cmp sil, dil
-    cmpsb
-    je cmp_char
+    or al, 0x20 ; Convert to lowercase
+    or cl, 0x20
 
-done:
-    ; add sil, dil
-    movzx eax, sil
-    movzx esi, dil
+    cmp al, cl
+    jne end_string
 
-    ; return *s1 - *s2
-    sub eax, esi
+    inc rdi
+    inc rsi
+    jmp cmp_char
+
+
+end_string:
+    movzx eax, al ; return *s1 - *s2
+    movzx ecx, cl
+    sub eax, ecx
     ret
     
 
