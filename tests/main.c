@@ -7,12 +7,12 @@ void test_memmove();
 void test_strcasecmp();
 
 int main() {
-    //test_strlen();
-    //test_strchr();
-    //test_memset();
-    //test_strcmp();
-    //test_strncmp();
-    //test_memmove();
+    test_strlen();
+    test_strchr();
+    test_memset();
+    test_strcmp();
+    test_strncmp();
+    test_memmove();
     test_strcasecmp();
     return 0;
 }

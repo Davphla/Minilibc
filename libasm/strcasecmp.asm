@@ -3,11 +3,10 @@
 [global asm_strcasecmp]
 
 asm_strcasecmp:
-    ; Arguments:
-    ; rdi - pointer to first string
-    ; rsi - pointer to second string
+    ; pointer to first string
+    ; pointer to second string
+    cld
 
-; Compare char
 cmp_char:
     ; set lowercase
     or sil, 0x20
@@ -23,11 +22,11 @@ cmp_char:
 
 done:
     ; add sil, dil
-    movzx eax, dil
-    movzx edi, sil
+    movzx eax, sil
+    movzx esi, dil
 
     ; return *s1 - *s2
-    sub eax, edi
+    sub eax, esi
     ret
     
 

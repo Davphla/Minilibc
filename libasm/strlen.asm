@@ -3,13 +3,16 @@
 [global asm_strlen]
 
 asm_strlen:
-    xor rax, rax
+    ; find '\0'
+    xor al, al
+    mov rcx, -1
+    repnz scasb
 
-count:
-    cmp byte [rdi + rax], 0
-    je quit
-    inc rax
-    jmp count
+    ; get lenght and return
+    not rcx
+    dec rcx
+    mov rax, rcx
 
-quit:
     ret
+
+
