@@ -4,6 +4,7 @@ void test_memset();
 void test_strcmp();
 void test_strncmp();
 void test_memmove();
+void test_strcasecmp();
 
 int main() {
     //test_strlen();
@@ -11,6 +12,7 @@ int main() {
     //test_memset();
     //test_strcmp();
     //test_strncmp();
-    test_memmove();
+    //test_memmove();
+    test_strcasecmp();
     return 0;
 }
