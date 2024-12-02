@@ -12,7 +12,17 @@ asm_strlen:
     not rcx
     dec rcx
     mov rax, rcx
-
     ret
 
+asm_strlen1:
+    xor rax, rax
 
+count:
+    mov cl, byte [rdi] ; Load the byte from memory into AL
+    test cl, cl 
+    jz done
+    inc rax
+    jmp count
+
+done:
+    ret

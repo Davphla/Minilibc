@@ -8,14 +8,13 @@ asm_strchr:
     ; rsi - character to find
     xor rax, rax ; set to 0
 
-; TODO modify using lodsb and more correct register
 find_char:
-    mov bl, byte [rdi + rax] ; load next character
+    mov cl, byte [rdi + rax] ; load next character
 
-    cmp bl, sil 
+    cmp cl, sil 
     je found
 
-    test bl, bl
+    test cl, cl
     jz not_found
 
     inc rax

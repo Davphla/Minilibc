@@ -9,3 +9,4 @@ extern int asm_strcmp(const char *s1, const char *s2);
 extern int asm_strncmp(const char *s1, const char *s2, size_t n);
 extern void *asm_memmove(void *dest, const void *src, size_t n);
 extern int asm_strcasecmp(const char *s1, const char *s2);
+extern char *asm_strstr(const char *haystack, const char *needle);
