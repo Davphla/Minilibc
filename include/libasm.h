@@ -11,3 +11,4 @@ extern void *asm_memmove(void *dest, const void *src, size_t n);
 extern int asm_strcasecmp(const char *s1, const char *s2);
 extern char *asm_strstr(const char *haystack, const char *needle);
 extern char *asm_strpbrk(const char *s, const char *accept);
+extern size_t asm_strcspn(const char *s, const char *reject);

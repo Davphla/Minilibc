@@ -9,7 +9,6 @@ asm_strpbrk:
 
 find_char:
     mov al, byte [rdi]
-    inc rdi ; rdi++
     test al, al ; is *str == '\0'
     jz return_null 
     
@@ -24,10 +23,11 @@ scan_string:
 
 end_loop:
     mov rsi, rcx ; put rsi to normal state
+    inc rdi ; rdi++
     jmp find_char ; repeat
 
 return_data:
-    lea rax, [rdi - 1] ; get good char in return value (lodsb do rsi++)
+    mov rax, rdi 
     ret
 
 return_null:
