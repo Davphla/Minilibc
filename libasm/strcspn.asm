@@ -3,3 +3,6 @@
 [global asm_strcspn]
 
 asm_strcspn:
+    ; rdi : str
+    ; rsi : reject
+    ; 

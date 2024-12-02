@@ -6,6 +6,7 @@ void test_strncmp();
 void test_memmove();
 void test_strcasecmp();
 void test_strstr();
+void test_strpbrk();
 
 int main() {
     test_strlen();
@@ -16,5 +17,6 @@ int main() {
     test_memmove();
     test_strcasecmp();
     test_strstr();
+    test_strpbrk();
     return 0;
 }
