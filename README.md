@@ -9,7 +9,7 @@
                                   
 # Minilibc
 
-Minilibc is a lightweight C library designed to reimplement key string and memory manipulation functions from the standard C library using **assembly language**. This project provides high-performance, low-level alternatives to commonly used functions, making it ideal for projects requiring optimized or minimal runtime environments.
+Minilibc is a lightweight C library designed to reimplement key string and memory manipulation functions from the standard C library using **assembly language**.
 
 ---
 
@@ -36,8 +36,6 @@ The following functions are fully implemented in assembly:
 ## Why Minilibc?
 
 - **Lightweight**: Focused on essential functionality without the overhead of a full standard library.
-- **Optimized**: Written in assembly for high performance and efficiency.
-- **Portable**: Can be integrated into low-level systems or embedded environments where minimal dependencies are critical.
 - **Educational**: Ideal for learning about low-level programming and assembly language techniques.
 
 ---
